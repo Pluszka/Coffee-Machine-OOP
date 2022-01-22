@@ -11,7 +11,7 @@ def whatToDo():
     choiceOption=['1', '2', '3', 'report', 'off']
     choose=None
     while not choose in choiceOption:
-        choose=input('What would you like? (espresso(1)/latte(2)/cappuccino(3)):')
+        choose=input(f'What would you like?:{menu.get_items()}\n1. $2.5\n2. $1.5\n3. $3\n')
     return choose
 
 
@@ -33,7 +33,7 @@ def escape():
 def makeDrink(typeOfCoffee):
     if coffee.is_resource_sufficient(typeOfCoffee):
         #print('działa')
-        money.make_payment(menu.typeOfCoffee(cost))
+        money.make_payment(typeOfCoffee.cost)
 
 while on:
     analyzing(whatToDo())
