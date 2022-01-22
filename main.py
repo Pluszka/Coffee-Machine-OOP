@@ -32,8 +32,9 @@ def escape():
 
 def makeDrink(typeOfCoffee):
     if coffee.is_resource_sufficient(typeOfCoffee):
-        #print('działa')
-        money.make_payment(typeOfCoffee.cost)
+        if money.make_payment(typeOfCoffee.cost):
+            coffee.make_coffee(typeOfCoffee)
+
 
 while on:
     analyzing(whatToDo())
