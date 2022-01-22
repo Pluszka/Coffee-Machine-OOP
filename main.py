@@ -19,6 +19,7 @@ def analyzing(choosenOption):
     coffeeType={'1':'espresso', '2':'latte', '3':'cappuccino'}
     if choosenOption=='report':
         coffee.report()
+        money.report()
     elif choosenOption=='off':
         escape()
     else:
@@ -31,8 +32,8 @@ def escape():
 
 def makeDrink(typeOfCoffee):
     if coffee.is_resource_sufficient(typeOfCoffee):
-        print('działa')
-
+        #print('działa')
+        money.make_payment(menu.typeOfCoffee(cost))
 
 while on:
     analyzing(whatToDo())
