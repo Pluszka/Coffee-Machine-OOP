@@ -14,15 +14,24 @@ def whatToDo():
         choose=input('What would you like? (espresso(1)/latte(2)/cappuccino(3)):')
     return choose
 
-def escape():
-    global on
-    on=False
 
 def analyzing(choosenOption):
+    coffeeType={'1':'espresso', '2':'latte', '3':'cappuccino'}
     if choosenOption=='report':
         coffee.report()
     elif choosenOption=='off':
         escape()
+    else:
+        makeDrink(menu.find_drink(coffeeType[choosenOption]))
+
+
+def escape():
+    global on
+    on=False
+
+def makeDrink(typeOfCoffee):
+    if coffee.is_resource_sufficient(typeOfCoffee):
+        print('działa')
 
 
 while on:
