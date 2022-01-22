@@ -5,6 +5,7 @@ from money_machine import MoneyMachine
 coffee=CoffeeMaker()
 money=MoneyMachine()
 menu=Menu()
+on=True
 
 def whatToDo():
     choiceOption=['1', '2', '3', 'report', 'off']
@@ -13,10 +14,16 @@ def whatToDo():
         choose=input('What would you like? (espresso(1)/latte(2)/cappuccino(3)):')
     return choose
 
+def escape():
+    global on
+    on=False
+
 def analyzing(choosenOption):
-    activiteis={'report':CoffeeMaker.report(coffe)}
-    return activiteis[choosenOption]
+    if choosenOption=='report':
+        coffee.report()
+    elif choosenOption=='off':
+        escape()
 
 
-
-analyzing(whatToDo())
+while on:
+    analyzing(whatToDo())
