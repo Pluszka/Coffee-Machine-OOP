@@ -5,6 +5,7 @@ from money_machine import MoneyMachine
 coffee=CoffeeMaker()
 money=MoneyMachine()
 menu=Menu()
+on = True
 
 def whatToDo():
     choiceOption=['1', '2', '3', 'report', 'off']
@@ -35,7 +36,6 @@ def makeDrink(typeOfCoffee):
             coffee.make_coffee(typeOfCoffee)
 
 def machine():
-    on = True
     while on:
         analyzing(whatToDo())
 
